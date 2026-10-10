@@ -100,9 +100,24 @@ export type Api = typeof httpApi;
  */
 const impl = (): Api => (config.useMocks || isDemoSession() ? mockApi : httpApi);
 
+/**
+ * A verificação pública consulta sempre a API real. Só numa sessão de demonstração, quando o
+ * código não existe de verdade, cai no relatório fictício: é o link que a própria tela do
+ * relatório de demonstração mostra, e antes ele abria em "Relatório não encontrado".
+ */
+const verifyPublic: Api["verifyPublic"] = async (publicId) => {
+  if (config.useMocks) return mockApi.verifyPublic(publicId);
+  try {
+    return await httpApi.verifyPublic(publicId);
+  } catch (error) {
+    if (!isDemoSession()) throw error;
+    return mockApi.verifyPublic(publicId);
+  }
+};
+
 export const api: Api = new Proxy({} as Api, {
   get: (_target, prop: keyof Api) =>
-    prop === "verifyPublic" ? (config.useMocks ? mockApi.verifyPublic : httpApi.verifyPublic) : impl()[prop],
+    prop === "verifyPublic" ? verifyPublic : impl()[prop],
 }) as Api;
 
 /** Login de demonstração (sempre via mockApi, mesmo com a API real configurada). */

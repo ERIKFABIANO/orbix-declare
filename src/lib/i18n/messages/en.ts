@@ -8,7 +8,7 @@ import type { Messages } from "./pt";
 export const en: Messages = {
   meta: {
     description:
-      "Your crypto taxes, calculated in Brazilian reais. An AI agent reads your Solana and Hyperliquid wallets, converts the events at the PTAX rate and prepares the month's DeCripto.",
+      "Your crypto taxes, calculated in Brazilian reais. An AI agent reads your Solana and Hyperliquid wallets, converts the events at the PTAX rate and prepares the data for the month's DeCripto.",
     login: "Sign in",
     dashboard: "Dashboard",
     sync: "Sync",
@@ -84,8 +84,8 @@ export const en: Messages = {
   login: {
     headline: "Your crypto taxes, calculated in reais.",
     pitch:
-      "An AI agent reads your Solana and Hyperliquid wallets, converts the events at the PTAX rate and prepares the month's DeCripto for Brazil's Federal Revenue.",
-    steps: ["Connect your wallet with one signature", "The agent reads swaps, perps and funding", "Review and generate the DeCripto in R$"],
+      "An AI agent reads your Solana and Hyperliquid wallets, converts the events at the PTAX rate and prepares the data for the DeCripto, the monthly crypto filing with Brazil's Federal Revenue.",
+    steps: ["Connect your wallet with one signature", "The agent reads swaps, perps and funding", "Review the month in R$ and download the report"],
     title: "One signature. Your taxes in order.",
     subtitle: "Sign in with your Solana wallet. No password, no sign-up, no funds moved.",
     searching: "Looking for wallets…",

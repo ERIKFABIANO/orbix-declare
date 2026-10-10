@@ -397,8 +397,10 @@ function eventsFor(key: string): TaxEvent[] {
     const networkWallets = wallets.filter((w) => w.network === b.network);
     const wallet = networkWallets.length ? networkWallets[i % networkWallets.length] : undefined;
     const { cost, costUnknown, costManual } = costInfo(id, b, round2(b.cost * f));
-    // PTAX de venda do dia útil anterior (aqui, simplificado para o dia anterior).
-    const ptaxDate = new Date(new Date(date).getTime() - 86_400_000).toISOString().slice(0, 10);
+    // PTAX de venda do próprio dia da operação; em sábado ou domingo, a da sexta (último dia útil).
+    const eventDay = new Date(date);
+    const weekendBack = eventDay.getUTCDay() === 0 ? 2 : eventDay.getUTCDay() === 6 ? 1 : 0;
+    const ptaxDate = new Date(eventDay.getTime() - weekendBack * 86_400_000).toISOString().slice(0, 10);
     const reasons: string[] = [];
     if (value === null) reasons.push(tr("Cotação histórica não encontrada.", "Historical quote not found."));
     if (costUnknown) reasons.push(tr("Custo de aquisição não encontrado no histórico lido.", "Acquisition cost not found in the history read."));
@@ -410,7 +412,7 @@ function eventsFor(key: string): TaxEvent[] {
       asset: b.asset,
       quantity: qty,
       quantityAsset: b.qtyAsset,
-      quantityIn: b.type === "swap" && b.qtyIn !== undefined ? b.qtyIn * f : null,
+      quantityIn: b.type === "swap" && b.qtyIn !== undefined ? Number((b.qtyIn * f).toFixed(4)) : null,
       quantityInAsset: b.type === "swap" ? b.asset.split(" → ")[1] : null,
       // Posição fictícia integralmente vendida; custo usa a quantidade já escalada/arredondada.
       positionBeforeQty: b.type === "swap" ? qty : null,
@@ -424,7 +426,7 @@ function eventsFor(key: string): TaxEvent[] {
       protocol: b.network === "solana" ? "Jupiter" : "Hyperliquid",
       // Sem arredondar para 2 casas: tokens baratos e preço × quantidade = valor (diferença < R$ 0,01).
       unitPriceBrl: value === null ? null : manual !== undefined ? manual : Number((value / qty).toPrecision(10)),
-      priceProvider: source === "auto" ? (b.network === "solana" ? "Birdeye" : "Hyperliquid") : null,
+      priceProvider: source === "auto" ? (b.network === "solana" ? "CoinGecko" : "Hyperliquid") : null,
       ptax: b.ptax,
       ptaxDate,
       priceObservedAt: value === null ? null : new Date(new Date(date).getTime() + 60_000).toISOString(),
@@ -979,8 +981,8 @@ export const mockApi = {
         return {
           publicId: r.attestation.publicId,
           description: tr(
-            `Relatório mensal · ${monthLabel(m.key).replace(" ", "/")} · titular ocultado`,
-            `Monthly report · ${monthLabel(m.key).replace(" ", "/")} · holder hidden`,
+            `Relatório mensal · ${monthLabel(m.key).replace(" ", "/")} · titular ocultado · dado de demonstração`,
+            `Monthly report · ${monthLabel(m.key).replace(" ", "/")} · holder hidden · demo data`,
           ),
           month: m.key,
           hash: r.attestation.hash,
@@ -1187,8 +1189,8 @@ export const mockApi = {
           {
             type: "text",
             text: tr(
-              "Usei a PTAX de venda do dia útil anterior à operação, publicada pelo Banco Central, como manda a regra de conversão.",
-              "I used the PTAX sell rate from the business day before the trade, published by Brazil's Central Bank, as the conversion rule requires.",
+              "A venda foi num sábado, sem cotação. Por isso usei a PTAX de venda de sexta, o último dia útil, publicada pelo Banco Central. Em dia útil vale a PTAX do próprio dia da operação.",
+              "The sale was on a Saturday, with no rate published. So I used Friday's PTAX sell rate, the last business day, published by Brazil's Central Bank. On a business day, the rate of the trade's own day applies.",
             ),
           },
           {

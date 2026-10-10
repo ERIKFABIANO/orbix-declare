@@ -6,7 +6,7 @@
 export const pt = {
   meta: {
     description:
-      "Seus impostos cripto, calculados em reais. Um agente de IA lê suas carteiras Solana e Hyperliquid, converte os eventos pela PTAX e prepara a DeCripto do mês.",
+      "Seus impostos cripto, calculados em reais. Um agente de IA lê suas carteiras Solana e Hyperliquid, converte os eventos pela PTAX e prepara os dados da DeCripto do mês.",
     login: "Entrar",
     dashboard: "Painel",
     sync: "Sincronização",
@@ -84,8 +84,8 @@ export const pt = {
   login: {
     headline: "Seus impostos cripto, calculados em reais.",
     pitch:
-      "Um agente de IA lê suas carteiras Solana e Hyperliquid, converte os eventos pela PTAX e prepara a DeCripto do mês para a Receita Federal.",
-    steps: ["Conecte a carteira com uma assinatura", "O agente lê swaps, perps e funding", "Revise e gere a DeCripto em R$"],
+      "Um agente de IA lê suas carteiras Solana e Hyperliquid, converte os eventos pela PTAX e prepara os dados da DeCripto, a declaração mensal de cripto da Receita Federal.",
+    steps: ["Conecte a carteira com uma assinatura", "O agente lê swaps, perps e funding", "Revise o mês em R$ e baixe o relatório"],
     title: "Uma assinatura. Seu imposto em ordem.",
     subtitle: "Entre com sua carteira Solana. Sem senha, sem cadastro, sem mover nenhum fundo.",
     searching: "Procurando carteiras…",

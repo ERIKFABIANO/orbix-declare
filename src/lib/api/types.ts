@@ -166,7 +166,7 @@ export interface TaxEvent {
   protocol?: string | null;
   /** Preço unitário usado, em R$. null quando não há preço. */
   unitPriceBrl?: number | null;
-  /** Fonte da cotação automática. Ex.: "Birdeye", "Hyperliquid". null se manual ou sem preço. */
+  /** Fonte da cotação automática. Ex.: "CoinGecko", "Hyperliquid". null se manual ou sem preço. */
   priceProvider?: string | null;
   /** PTAX de venda (USD→BRL) usada na conversão e a data de referência (AAAA-MM-DD). */
   ptax?: number | null;
