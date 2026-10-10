@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Página estática da proposta (arquivos gerados e bibliotecas de terceiros):
+    "public/proposal/**",
   ]),
 ]);
 

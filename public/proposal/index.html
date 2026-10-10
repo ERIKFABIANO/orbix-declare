@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Orbix Declare · Proposal · Colosseum Crypto World's Fair</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;700;800;900&amp;family=DM+Sans:opsz,wght@9..40,300;9..40,500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F7F5FF;color:#07040D;font-family:'DM Sans',system-ui,sans-serif;font-weight:300;-webkit-font-smoothing:antialiased}
+a{color:#5B35C8}a:hover{color:#1F0D5C}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px;box-sizing:border-box}
+.sec{padding:96px 0}
+.light{background:#F7F5FF;color:#07040D}
+.dark{background:#07040D;color:#F7F5FF}
+.deep{background:#1F0D5C;color:#F7F5FF}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#5B35C8;margin:0 0 16px}
+.dark .kicker,.deep .kicker{color:#8B6AE8}
+.h2{font-family:'Outfit',system-ui,sans-serif;font-weight:800;font-size:clamp(34px,4.6vw,48px);line-height:1.05;margin:0 0 20px;letter-spacing:-.03em}
+.lead{font-size:18px;line-height:1.65;color:#3E3852;max-width:760px;margin:0}
+.dark .lead,.deep .lead{color:rgba(247,245,255,.72)}
+strong,b{font-weight:500}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:24px}
+.card{background:#EBE5FF;border:1px solid rgba(91,53,200,.14);border-radius:12px;padding:26px;box-sizing:border-box}
+.dark .card,.deep .card{background:#110B1F;border-color:rgba(139,106,232,.22)}
+.card h3{font-family:'Outfit',system-ui,sans-serif;margin:0 0 10px;font-size:21px;font-weight:700;letter-spacing:-.02em}
+.card p,.card li{color:#3E3852;font-size:15.5px;line-height:1.6;margin:0}
+.dark .card p,.dark .card li,.deep .card p,.deep .card li{color:rgba(247,245,255,.72)}
+.card ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px}
+.stat{font-family:'Outfit',system-ui,sans-serif;font-weight:900;font-size:52px;letter-spacing:-.04em;line-height:1;margin:0 0 10px;color:#07040D}
+.src{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.04em;color:#6B6485;margin-top:12px}
+.dark .src,.deep .src{color:rgba(247,245,255,.5)}
+.tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:#EBE5FF;color:#5B35C8;border:1px solid rgba(91,53,200,.25)}
+.dark .tag,.deep .tag{background:#1F0D5C;color:#8B6AE8;border-color:rgba(139,106,232,.35)}
+.tag-gold{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:999px;color:#EDD07A;border:1px solid rgba(212,168,67,.55)}
+.sep{height:2px;width:64px;background:#D4A843;border:0;margin:0 0 28px}
+.ph{border:1.5px dashed #8B6AE8;border-radius:12px;background:#EBE5FF;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px;padding:24px;box-sizing:border-box;color:#3E3852}
+.dark .ph,.deep .ph{background:#110B1F;border-color:#5B35C8;color:rgba(247,245,255,.72)}
+.ph b{font-family:'JetBrains Mono',monospace;color:#5B35C8;font-size:13px;font-weight:500;letter-spacing:.06em}
+.dark .ph b,.deep .ph b{color:#8B6AE8}
+.ph span{font-size:14px;max-width:360px;line-height:1.5}
+.tbl{overflow-x:auto;border:1px solid rgba(91,53,200,.18);border-radius:12px;background:#F7F5FF}
+.dark .tbl{background:#07040D;border-color:rgba(139,106,232,.25)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:760px}
+th{text-align:left;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5B35C8;font-weight:500;padding:14px 16px;background:#EBE5FF;border-bottom:1px solid rgba(91,53,200,.18)}
+td{padding:14px 16px;border-bottom:1px solid rgba(91,53,200,.1);color:#3E3852;vertical-align:top;line-height:1.55}
+.dark td{color:rgba(247,245,255,.72);border-bottom-color:rgba(139,106,232,.15)}
+tr:last-child td{border-bottom:none}
+td strong{color:#07040D}
+.dark td strong{color:#F7F5FF}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 24px;border-radius:8px;font-family:'DM Sans',sans-serif;font-weight:500;font-size:15.5px;text-decoration:none}
+.step{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#5B35C8;margin:0 0 10px}
+.dark .step,.deep .step{color:#8B6AE8}
+.wm{font-family:'Outfit',system-ui,sans-serif;font-weight:900;letter-spacing:-.04em;line-height:1}
+.ico{width:40px;height:40px;border-radius:10px;background:#5B35C8;color:#F7F5FF;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+</style>
+</helmet>
+<div style="width: 100%; min-height: 8000px; box-sizing: border-box; background: #F7F5FF">
+
+<!-- NAV -->
+<div style="position: sticky; top: 0; z-index: 10; background: #F7F5FF; border-bottom: 1px solid rgba(91,53,200,.12)">
+<div class="wrap" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; flex-wrap: wrap">
+<div style="display: flex; align-items: center; gap: 12px">
+<div style="width: 36px; height: 36px; border-radius: 50%; background: #5B35C8; display: flex; align-items: center; justify-content: center"><span class="wm" style="font-size: 15px; color: #F7F5FF">O</span></div>
+<div class="wm" style="font-size: 22px; color: #07040D">orbix<span style="color: #5B35C8">.</span><span style="font-weight: 300; color: #8B6AE8; font-size: 18px"> lab</span></div>
+</div>
+<div style="display: flex; gap: 22px; flex-wrap: wrap; font-size: 14px; font-weight: 500">
+<a href="#problem" style="color: #3E3852; text-decoration: none">Validation</a>
+<a href="#architecture" style="color: #3E3852; text-decoration: none">Architecture</a>
+<a href="#progress" style="color: #3E3852; text-decoration: none">Progress</a>
+<a href="#stack" style="color: #3E3852; text-decoration: none">Stack</a>
+<a href="#proposal" style="color: #5B35C8; text-decoration: none">Proposal</a>
+</div>
+</div>
+</div>
+
+<!-- HERO -->
+<div class="dark">
+<div class="wrap" style="padding-top: 96px; padding-bottom: 104px">
+<img src="./assets/a31e275d7325a866be54440b052c889c.png" alt="orbix declare logo" style="height: 56px; width: auto; max-width: 100%; display: block; margin-bottom: 36px">
+<div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 32px">
+<span class="tag-gold">Crypto World's Fair · 2026</span>
+<span class="tag">Solana track</span>
+<span class="tag">Hyperliquid track</span>
+<span class="tag">Superteam Brasil track</span>
+<span class="tag">RegTech &amp; Compliance</span>
+</div>
+<div class="grid2" style="align-items: center">
+<div>
+<h1 style="font-family: 'Outfit', system-ui, sans-serif; font-weight: 900; font-size: clamp(44px, 6.4vw, 72px); line-height: 1; margin: 0 0 24px; letter-spacing: -.04em; color: #F7F5FF">Your on-chain wallet, <span style="color: #8B6AE8">ready for the tax authority.</span></h1>
+<p class="lead">Orbix Declare turns Solana and Hyperliquid activity into explainable tax reports for Brazilian users. It is live: it reads a wallet from its public address, calculates in reais and produces a report you can review with your accountant before filing.</p>
+<div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 36px">
+<a class="btn" href="https://declare.orbixlab.com.br/login" style="background: #5B35C8; color: #F7F5FF">Try the demo</a><a class="btn" href="#proposal" style="border: 1px solid rgba(139,106,232,.5); color: #F7F5FF">Read the proposal</a>
+<a class="btn" href="#architecture" style="border: 1px solid rgba(139,106,232,.5); color: #F7F5FF">How it works</a>
+</div>
+<p class="src" style="margin-top: 32px">BUILT BY ORBIX. LAB · FILIPE VEIGA &amp; ERIK APPE · BRAZIL</p>
+</div>
+<img src="./assets/ba73b88fc6b72e2417e9801ae8894fa8.jpg" alt="Tax report with tokens orbiting around it" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 12px; display: block">
+</div>
+</div>
+</div>
+
+<!-- VALIDATION -->
+<div id="problem" class="sec light">
+<div class="wrap">
+<p class="kicker">01 — Validation</p>
+<h2 class="h2">A real, large problem that just got more serious.</h2>
+<p class="lead">Since July 1, 2026, Brazil's DeCripto rule (IN RFB 2,291/2025) replaced the old IN 1,888. Anyone trading outside Brazilian exchanges, on DEXs, self-custody wallets or foreign platforms, must report every month once they pass R$35,000. International reporting is expanding through the OECD's CARF standard, with participating jurisdictions committed to begin exchanges in 2027, 2028 or 2029.</p>
+<div class="grid" style="margin-top: 48px">
+<div class="card" style="border-top: 2px solid #D4A843"><p class="stat">4.67M</p><p>Unique taxpayers with crypto operations reported to Brazil's tax authority in June 2026 alone.</p><p class="src">RECEITA FEDERAL · OPEN DATA · AUG 2026</p></div>
+<div class="card"><p class="stat">R$57.5B</p><p>In crypto operations reported in a single month (June 2026).</p><p class="src">RECEITA FEDERAL · OPEN DATA · AUG 2026</p></div>
+<div class="card"><p class="stat">70+</p><p>Jurisdictions committed to implementing CARF, with first exchanges planned for 2027–2029.</p><p class="src">OECD · CARF COMMITMENTS · SEP 2026</p></div>
+<div class="card"><p class="stat">R$35K</p><p>Monthly threshold outside Brazilian exchanges that triggers mandatory DeCripto filing.</p><p class="src">BLUE CONSULT · DECRIPTO GUIDE</p></div>
+</div>
+
+<h3 style="font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 700; letter-spacing: -.02em; margin: 72px 0 20px">Who else is here, and where the gap is</h3>
+<div class="tbl">
+<table>
+<thead><tr><th>Solution</th><th>What it does well</th><th>Documented workflow or scope</th></tr></thead>
+<tbody>
+<tr><td><strong>Declare Cripto</strong></td><td>Generates Brazilian tax documents and supports wallets, DeFi and Hyperliquid.</td><td>Its public Hyperliquid guide requires monthly CSV uploads. Some staking and liquidity-pool cases require information from the user via support.</td></tr>
+<tr><td><strong>Brazilian exchanges</strong> (e.g. Mercado Bitcoin)</td><td>Provide records and reporting for activity on their own platform.</td><td>Records from one exchange do not consolidate a user's activity across external wallets and protocols.</td></tr>
+<tr><td><strong>GCAP (tax authority tool)</strong></td><td>Free and official for capital gains.</td><td>Users still need to prepare the underlying transaction history and calculations.</td></tr>
+<tr><td><strong style="color: #5B35C8">Orbix Declare</strong></td><td colspan="2">What the MVP does today: reads Solana and Hyperliquid from a public address with no file uploads, calculates in reais, and an agent explains the underlying events and rules in Portuguese and English. We aim to reduce manual work; comparative performance remains to be validated.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="grid" style="margin-top: 24px">
+<div class="card"><h3>Risks we acknowledge</h3><ul><li>There is no public API to file with the tax authority: we prepare the data and a review package, and the user files it. The file in the official DeCripto layout is our next step.</li><li>Taxation of perps and funding has gray areas: every rule in our engine is documented and reviewable.</li><li>Not tax advice. Reports are built to be reviewed by an accountant.</li></ul></div>
+<div class="card"><h3>How we are validating</h3><ul><li>Tested end to end in production against real Solana and Hyperliquid wallets, with every test case and result logged.</li><li>More than 100 manual test cases passed in production and 204 automated tests on the back end.</li><li>Reports finalized on real data, each with its hash recorded on Solana devnet and publicly verifiable.</li><li>Next: sessions with traders from the Superteam Brasil community and one accountant.</li></ul></div>
+</div>
+</div>
+</div>
+
+<!-- IMPACT -->
+<div id="impact" class="sec deep">
+<div class="wrap">
+<p class="kicker">02 — Impact</p>
+<h2 class="h2">Why this matters beyond Brazil.</h2>
+<p class="lead">CARF creates a shared international reporting framework. We start with Brazil; reusable ingestion and transaction records could support expansion, while each country's tax rules would require separate implementation and validation.</p>
+<div class="grid2" style="margin-top: 48px; align-items: stretch">
+<div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))">
+<div class="card"><h3>Traders</h3><p>Less time assembling transaction records, with calculations and unresolved items available for review.</p></div>
+<div class="card"><h3>Accountants</h3><p>Reports designed to connect calculations to source events, prices and applied rules for review.</p></div>
+<div class="card"><h3>Ecosystem</h3><p>Clear compliance lowers the fear of using Solana and Hyperliquid and brings more people on-chain.</p></div>
+<div class="card" style="border-color: rgba(212,168,67,.55)"><h3 style="color: #EDD07A">Society</h3><p>Help users organize their own records and understand their reporting obligations.</p></div>
+</div>
+<img src="./assets/81381ee39521509993e05275cf0b7dc4.jpg" alt="Dot world map with connections leaving Brazil" style="width: 100%; height: 100%; min-height: 360px; object-fit: cover; border-radius: 12px; display: block">
+</div>
+</div>
+</div>
+
+<!-- ARCHITECTURE -->
+<div id="architecture" class="sec light">
+<div class="wrap">
+<p class="kicker">03 — Architecture</p>
+<h2 class="h2">How the system works.</h2>
+<p class="lead">From wallet to report in five stages. Every integration is read-only: users share public addresses and we never touch private keys or funds.</p>
+<div class="card" style="margin-top: 40px; padding: 20px; overflow-x: auto; background: #F7F5FF">
+<svg viewBox="0 0 1120 520" width="100%" style="min-width: 760px; display: block" role="img" aria-label="Orbix Declare architecture diagram">
+<g font-family="DM Sans, sans-serif" font-size="14" font-weight="500">
+<g font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#5B35C8" font-weight="400">
+<text x="20" y="28">USERS</text><text x="230" y="28">API</text><text x="420" y="28">ORBIX SERVICES</text><text x="900" y="28">EXTERNAL AND DATA</text>
+</g>
+<rect x="20" y="150" width="160" height="56" rx="8" fill="#EBE5FF" stroke="#8B6AE8"></rect><text x="100" y="183" fill="#07040D" text-anchor="middle">Next.js web app</text>
+<rect x="20" y="290" width="160" height="56" rx="8" fill="#EBE5FF" stroke="#8B6AE8"></rect><text x="100" y="323" fill="#07040D" text-anchor="middle">Public verify page</text>
+<rect x="230" y="220" width="150" height="56" rx="8" fill="#1F0D5C"></rect><text x="305" y="253" fill="#F7F5FF" text-anchor="middle">API · FastAPI</text>
+<rect x="420" y="70" width="190" height="56" rx="8" fill="#5B35C8"></rect><text x="515" y="103" fill="#F7F5FF" text-anchor="middle">1 · On-chain ingestion</text>
+<rect x="420" y="170" width="190" height="56" rx="8" fill="#5B35C8"></rect><text x="515" y="203" fill="#F7F5FF" text-anchor="middle">2 · BRL pricing</text>
+<rect x="420" y="270" width="190" height="56" rx="8" fill="#5B35C8"></rect><text x="515" y="303" fill="#F7F5FF" text-anchor="middle">3 · Tax engine</text>
+<rect x="420" y="400" width="190" height="56" rx="8" fill="#5B35C8"></rect><text x="515" y="433" fill="#F7F5FF" text-anchor="middle">4 · AI agent</text>
+<rect x="660" y="270" width="190" height="56" rx="8" fill="#F7EDD4" stroke="#D4A843" stroke-width="1.5"></rect><text x="755" y="303" fill="#07040D" text-anchor="middle">5 · Report + hash</text>
+<g fill="#F7F5FF" stroke="#8B6AE8">
+<rect x="900" y="50" width="200" height="40" rx="6"></rect><rect x="900" y="100" width="200" height="40" rx="6"></rect>
+<rect x="900" y="165" width="200" height="40" rx="6"></rect><rect x="900" y="215" width="200" height="40" rx="6"></rect>
+<rect x="900" y="330" width="200" height="40" rx="6"></rect><rect x="900" y="408" width="200" height="40" rx="6"></rect>
+<rect x="900" y="460" width="200" height="40" rx="6"></rect>
+</g>
+<g fill="#3E3852" text-anchor="middle" font-weight="400">
+<text x="1000" y="75">Helius · Solana</text><text x="1000" y="125">Hyperliquid Info API</text>
+<text x="1000" y="190">CoinGecko</text><text x="1000" y="240">BCB · PTAX</text>
+<text x="1000" y="355">Supabase Postgres</text><text x="1000" y="433">OpenAI API</text>
+<text x="1000" y="485">Solana · hash memo</text>
+</g>
+<g stroke="#1F0D5C" stroke-width="1.75" fill="none">
+<path d="M180 178 L230 240"></path><path d="M180 318 L230 256"></path>
+<path d="M380 240 L420 100"></path><path d="M380 256 L420 428"></path>
+<path d="M515 126 L515 170"></path><path d="M515 226 L515 270"></path>
+<path d="M610 298 L660 298"></path><path d="M515 400 L515 326"></path>
+</g>
+<g stroke="#8B6AE8" stroke-width="1.5" stroke-dasharray="5 5" fill="none">
+<path d="M610 92 L900 70"></path><path d="M610 104 L900 120"></path>
+<path d="M610 192 L900 185"></path><path d="M610 204 L900 235"></path>
+<path d="M850 298 L900 350"></path><path d="M610 428 L900 428"></path><path d="M850 312 L900 480"></path>
+</g>
+<g fill="#6B6485" font-size="12" font-weight="400" font-family="JetBrains Mono, monospace">
+<text x="620" y="160">reads transactions</text><text x="620" y="222">price + FX rate</text><text x="440" y="378">explains</text>
+</g>
+</g>
+</svg>
+</div>
+<div class="grid" style="margin-top: 24px">
+<div class="card"><p class="step">01 · Ingestion</p><p>Solana history through Helius; Hyperliquid fills, funding, deposits, transfers and airdrops through its public Info API.</p></div>
+<div class="card"><p class="step">02 · Pricing</p><p>Historical USD prices, taken from the transaction itself when a stablecoin is involved and from CoinGecko otherwise, converted to BRL with the Central Bank's PTAX rate.</p></div>
+<div class="card"><p class="step">03 · Tax engine</p><p>Average cost basis per token, the R$35K monthly exemption and an estimated tax at a flat 15%. Every number shows the events, price and rule behind it. The official DeCripto layout, GCAP and DARF outputs are next.</p></div>
+<div class="card"><p class="step">04 + 05 · Agent and proof</p><p>The tax engine calculates; the AI agent explains its results and cites the transactions. Each final report's SHA-256 hash is recorded in a Solana memo transaction (devnet today), and anyone can check the file on a public page. It verifies file integrity, not tax correctness.</p></div>
+</div>
+</div>
+</div>
+
+<!-- PROGRESS -->
+<div id="progress" class="sec light" style="border-top: 1px solid rgba(91,53,200,.12)">
+<div class="wrap">
+<p class="kicker">04 — Progress</p>
+<h2 class="h2">Where we are today.</h2>
+<p class="lead">We started Orbix Declare in late September 2026, during the hackathon. Everything below was built within the judging window and is running in production.</p>
+<div class="grid2" style="margin-top: 40px">
+<div class="card"><h3>Done</h3><ul>
+<li>Sign-in by signing a message with Phantom or Solflare, plus e-mail code, Google and GitHub. No passwords.</li><li>Read-only ingestion from a public address: Solana through Helius; Hyperliquid fills, funding, deposits, transfers and airdrops.</li><li>Pricing in reais at the Central Bank's PTAX rate of the trade day.</li><li>Tax engine: average cost per token, monthly exemption, perps and funding, with the origin of every number on screen.</li><li>Monthly report: CSV, review package for the accountant, and new versions when data changes.</li><li>SHA-256 hash of each final report recorded on Solana (devnet) and a public verification page.</li><li>AI agent that explains the calculation and cites transactions, with a rules-based fallback.</li><li>Postgres with Row Level Security, private file storage, 204 automated tests.</li>
+</ul></div>
+<div class="card"><h3>Not done yet</h3><ul>
+<li>DeCripto file in the tax authority's official layout. Today we prepare the data for it.</li><li>GCAP and DARF outputs.</li><li>Report hash on Solana mainnet. It runs on devnet today.</li><li>Progressive tax brackets. The estimate uses a flat 15%.</li><li>Validation sessions with traders and an accountant.</li>
+</ul></div>
+</div>
+<div class="grid" style="margin-top: 24px">
+<div class="card"><p class="step">Sep 29 – Oct 1</p><p>Auth, database, Solana ingestion, pricing.</p></div>
+<div class="card"><p class="step">Oct 2 – Oct 4</p><p>Tax engine, Hyperliquid, AI agent, on-chain hash.</p></div>
+<div class="card"><p class="step">Oct 5 – Oct 6</p><p>Production testing with real wallets, demo mode.</p></div>
+<div class="card"><p class="step">Oct 7 – Oct 11</p><p>Fixes from testing, report versions, final submission.</p></div>
+</div>
+</div>
+</div>
+
+<!-- STACK -->
+<div id="stack" class="sec light" style="border-top: 1px solid rgba(91,53,200,.12)">
+<div class="wrap">
+<p class="kicker">05 — Stack and APIs</p>
+<h2 class="h2">What we use, what it costs, and the limits.</h2>
+<p class="lead">Pricing researched in September 2026. The MVP runs on free tiers, except for the AI model and one small server.</p>
+<div style="display: flex; gap: 8px; flex-wrap: wrap; margin: 32px 0">
+<span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Tailwind</span><span class="tag">Supabase</span><span class="tag">Vercel</span><span class="tag">@solana/web3.js</span><span class="tag">Sign-In With Solana</span><span class="tag">Helius</span><span class="tag">Hyperliquid API</span><span class="tag">CoinGecko</span><span class="tag">BCB PTAX</span><span class="tag">OpenAI SDK</span><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Redis</span><span class="tag">Cloudflare R2</span>
+</div>
+<div class="tbl">
+<table>
+<thead><tr><th>API / service</th><th>Role</th><th>Plan and price</th><th>Limits that matter</th></tr></thead>
+<tbody>
+<tr><td><strong>OpenAI API</strong></td><td>Agent that explains reports and cites the source transactions</td><td>Usage-based, billed per token.</td><td>About 3,100 input tokens per question in our tests. The free plan includes 20 questions per month; when the model is unavailable, a rules-based explanation answers instead.</td></tr>
+<tr><td><strong>Helius</strong></td><td>Decoded Solana transaction history</td><td>Free: 1M credits/month. Developer: US$49 for 10M.</td><td>Free: 10 req/s. Parsed Events API: 10 credits per request, generally available since Sep 24, 2026.</td></tr>
+<tr><td><strong>Hyperliquid Info API</strong></td><td>Spot and perp fills, funding and the account ledger</td><td>Free and public</td><td>1,200 weight per minute per IP. Fills already include the USD price.</td></tr>
+<tr><td><strong>CoinGecko API</strong></td><td>Historical USD token prices</td><td>Demo: free, 10K calls/month. Basic: US$35/month (annual).</td><td>Only queried when a transaction has no stablecoin on either side; every price is cached.</td></tr>
+<tr><td><strong>BCB · PTAX</strong></td><td>Official daily USD/BRL rate</td><td>Free, open data</td><td>No API key needed.</td></tr>
+<tr><td><strong>Supabase</strong></td><td>Postgres with Row Level Security</td><td>Free: US$0. Pro: US$25/month.</td><td>Free: 500 MB database, pauses after a week without use.</td></tr>
+<tr><td><strong>Vercel</strong></td><td>Front end. The API runs on a separate server with FastAPI.</td><td>Hobby: US$0. Pro: US$20 per member/month.</td><td>Hobby is non-commercial; move to Pro when we start charging.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<!-- PROPOSAL -->
+<div id="proposal" class="sec dark">
+<div class="wrap">
+<p class="kicker">06 — Proposal</p>
+<hr class="sep">
+<img src="./assets/a31e275d7325a866be54440b052c889c.png" alt="orbix declare logo" style="height: 48px; width: auto; max-width: 100%; display: block; margin-bottom: 28px">
+<h2 class="h2" style="font-size: clamp(40px, 5.6vw, 64px); font-weight: 900; letter-spacing: -.04em">Tax compliance for people who live on-chain.</h2>
+<p class="lead">We build for Brazilian users of Solana and Hyperliquid who need to turn complex activity into reviewable tax records. Our focus is reducing recurring manual work and explaining how each calculation was produced.</p>
+
+<div class="grid2" style="margin-top: 48px">
+<img src="./assets/d0799baa9990145e80836bb28528dbde.jpg" alt="Orbix Declare dashboard in demo mode" style="width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 12px; display: block">
+<img src="./assets/132686a7216198d385f7d05c90c1df17.jpg" alt="The agent explaining a capital gain, with the cited transaction" style="width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 12px; display: block">
+</div>
+<p class="src" style="margin-top: 12px">PRODUCT SCREENS · DEMO MODE WITH SAMPLE DATA</p>
+
+<div class="grid" style="margin-top: 24px">
+<div class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></div><p class="step">Step 01</p><h3>Sign in with your wallet</h3><p>Sign a message with Phantom or Solflare and add your Hyperliquid addresses. Read-only, no private keys.</p></div>
+<div class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg></div><p class="step">Step 02</p><h3>The engine calculates</h3><p>Every event in reais at the official daily rate, with average cost basis and exemptions applied.</p></div>
+<div class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></div><p class="step">Step 03</p><h3>Review and download</h3><p>The month's report and a review package for your accountant, with the agent explaining every line and a hash recorded on Solana.</p></div>
+</div>
+
+<div class="tbl" style="margin-top: 40px">
+<table>
+<tbody>
+<tr><td style="width: 220px"><strong>Problem</strong></td><td>Brazilian DeFi users must assemble records across wallets and trading platforms. Existing services cover this market, but documented workflows still involve recurring file uploads and manual clarification of some operations.</td></tr>
+<tr><td><strong>Solution</strong></td><td>A working MVP combining on-chain ingestion, a tax engine in reais and an AI agent that explains results for review, with each report's hash recorded on Solana for integrity.</td></tr>
+<tr><td><strong>Differentiator</strong></td><td>Our differentiation hypothesis: less recurring manual work for Solana and Hyperliquid users, plus explanations tied to source events and calculation rules. Validate through real user workflows.</td></tr>
+<tr><td><strong>Business model</strong></td><td>Freemium: free with up to 3 wallets and 20 agent questions per month. Pro and accountant plans are planned; pricing will be set after validation with users. Accountants are our main growth channel.</td></tr>
+<tr><td><strong>First customers</strong></td><td>The Superteam Brasil community and Solana and Hyperliquid traders; then accounting firms.</td></tr>
+<tr><td><strong>Why now</strong></td><td>The transition to DeCripto increases the need for organized records. We see an opportunity to improve the recurring workflow for Brazilian Solana and Hyperliquid users within an established market.</td></tr>
+<tr><td><strong>Post-accelerator roadmap</strong></td><td>Pro plan paid in USDC via Solana Pay, on-chain pricing with Jupiter or Pyth, a composable on-chain attestation of each report that other apps can verify, and a tax API for wallets, exchanges and fintechs.</td></tr>
+<tr><td><strong>Vision</strong></td><td>Start with Brazilian DeFi users, then expand reusable data infrastructure with locally validated tax rules.</td></tr>
+<tr><td><strong style="color: #8B6AE8">Our ask</strong></td><td>A spot in the Colosseum accelerator to validate our focused MVP with users and accountants, measure the reduction in manual work and build toward launch.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3 style="font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 700; letter-spacing: -.02em; margin: 56px 0 8px; color: #F7F5FF">The team</h3>
+<p class="lead" style="font-size: 16px">We met in 2025 in the AI and Data track of Geração Caldeira, a tech program in Brazil, and left it as co-founders of orbix. lab.</p>
+<div class="grid2" style="margin-top: 24px">
+<div class="card" style="display: flex; gap: 18px; align-items: center"><img src="./assets/aa5a650a36b46131571f6cce73765b23.jpg" alt="Photo of Filipe Veiga" style="width: 88px; height: 88px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid #5B35C8"><div><h3>Filipe Gabriel Veiga de Paula</h3><p>Co-founder &amp; CPO. Pricing service, tax engine, database and web app. Geração Caldeira AI and Data alumnus.</p></div></div>
+<div class="card" style="display: flex; gap: 18px; align-items: center"><img src="./assets/e84b9c5df0cd88b754fa44a1b6485e35.jpg" alt="Photo of Erik Appe" style="width: 88px; height: 88px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid #5B35C8"><div><h3>Erik Appe</h3><p>Founder &amp; CEO. On-chain ingestion, AI agents and infrastructure. Computer Science at FIAP.</p></div></div>
+</div>
+</div>
+</div>
+
+<!-- SOURCES -->
+<div id="sources" class="sec light">
+<div class="wrap">
+<p class="kicker">07 — Sources</p>
+<h2 class="h2" style="font-size: 36px">References for this proposal.</h2>
+<div class="grid" style="margin-top: 32px; font-size: 14px; line-height: 1.8">
+<div class="card"><h3>Hackathon</h3><p><a href="https://colosseum.com/worldsfair">colosseum.com/worldsfair</a><br><a href="https://hackathon.superteam.com.br/">hackathon.superteam.com.br</a><br><a href="https://declare.orbixlab.com.br/login">Orbix Declare · live product and demo mode</a></p></div>
+<div class="card"><h3>Regulation and market</h3><p><a href="https://www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/declaracoes-e-demonstrativos/criptoativos/arquivos/criptoativos_dados_abertos_20260826.pdf">Receita Federal · open data</a><br><a href="https://blueconsult.com.br/decripto-nova-declaracao-criptoativos/">DeCripto guide (PT)</a><br><a href="https://www.oecd.org/en/networks/global-forum-tax-transparency/news-events/2026/argentina-commits-to-start-automatic-exchange-of-information-on-crypto-asset-transactions-by-2029.html">OECD · CARF commitments and timeline</a><br><a href="https://faq.declarecripto.com.br/tutoriais-sobre-extracao-de-dados-e-criptomoedas/corretoras-api-e-extratos/hyperliquid">Declare Cripto · Hyperliquid workflow</a><br><a href="https://faq.declarecripto.com.br/informacoes-sobre-a-receita-federal/como-sao-calculadas-operacoes-em-dex-como-stake-ou-pool-de-liquidez">Declare Cripto · staking and pools</a></p></div>
+<div class="card"><h3>APIs and pricing</h3><p><a href="https://openai.com/api/pricing/">OpenAI pricing</a><br><a href="https://www.helius.dev/pricing">Helius pricing</a><br><a href="https://hyperliquid.gitbook.io/Hyperliquid-docs/for-developers/api/rate-limits">Hyperliquid rate limits</a><br><a href="https://www.coingecko.com/api/pricing">CoinGecko API</a><br><a href="https://dadosabertos.bcb.gov.br/dataset/dolar-americano-usd-todos-os-boletins-diarios/resource/43a16981-5a4b-47d9-b7bd-4c0c4093f994">BCB PTAX</a></p></div>
+<div class="card"><h3>Auth and infrastructure</h3><p><a href="https://supabase.com/docs/guides/auth/auth-web3">Supabase · Sign in with Web3</a><br><a href="https://solanacompass.com/news/helius-takes-parsed-streams-and-the-parsed-events-api-out-of-beta-decoding">Helius Parsed Events GA</a></p></div>
+</div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<div class="dark" style="padding: 48px 0">
+<div class="wrap" style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
+<div class="wm" style="font-size: 26px; color: #F7F5FF">orbix<span style="color: #D4A843">.</span><span style="font-weight: 300; color: #8B6AE8; font-size: 20px"> lab</span></div>
+<p class="src" style="margin: 0">PROPOSAL · CRYPTO WORLD'S FAIR 2026 · NOT TAX OR LEGAL ADVICE</p>
+</div>
+</div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":8000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
