@@ -936,7 +936,7 @@ export const en: Messages = {
         id: "pro",
         name: "Pro",
         price: "R$319",
-        regularPrice: "R$1,074/yr",
+        regularPrice: "R$2,500/yr",
         period: "/yr",
         tagline: "For trading on more than one wallet.",
         features: ["Unlimited wallets", "5,000 transactions per year", "200 agent questions per month", "Review package for your accountant", "Priority support"],
@@ -947,9 +947,9 @@ export const en: Messages = {
       {
         id: "accountant",
         name: "Accountant",
-        price: "R$1,074",
-        regularPrice: "R$2,695/yr",
-        period: "/yr",
+        price: "R$250",
+        regularPrice: "R$1,200/client/yr",
+        period: "/client/yr",
         tagline: "For firms with several crypto clients.",
         features: ["Up to 10 clients", "25,000 transactions per year, across clients", "1,000 agent questions per month, across clients", "One dashboard for your client wallets", "Standardized review package", "More than 10 clients: on a call"],
         cta: { soon: true },
@@ -975,7 +975,7 @@ export const en: Messages = {
         },
         {
           q: "Why are prices lower during beta?",
-          a: "Because we're still building the accountant features and dashboard. Each payment covers 12 months. After beta, Pro becomes R$1,074 per year and Accountant R$2,695 per year.",
+          a: "Because we're still building the accountant features and dashboard. Each payment covers 12 months. After beta, Pro becomes R$2,500 per year and Accountant R$1,200 per client per year.",
         },
         {
           q: "Is my data safe?",

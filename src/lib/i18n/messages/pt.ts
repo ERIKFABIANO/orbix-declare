@@ -958,7 +958,7 @@ export const pt = {
         id: "pro",
         name: "Pro",
         price: "R$ 319",
-        regularPrice: "R$ 1.074/ano",
+        regularPrice: "R$ 2.500/ano",
         period: "/ano",
         tagline: "Para quem opera em mais de uma carteira.",
         features: ["Carteiras ilimitadas", "5.000 transações por ano", "200 perguntas ao agente por mês", "Pacote de revisão para o contador", "Suporte prioritário"],
@@ -969,9 +969,9 @@ export const pt = {
       {
         id: "accountant",
         name: "Contador",
-        price: "R$ 1.074",
-        regularPrice: "R$ 2.695/ano",
-        period: "/ano",
+        price: "R$ 250",
+        regularPrice: "R$ 1.200/cliente/ano",
+        period: "/cliente/ano",
         tagline: "Para escritório com vários clientes em cripto.",
         features: ["Até 10 clientes", "25.000 transações por ano, somando os clientes", "1.000 perguntas ao agente por mês, somando os clientes", "Painel único para a carteira de clientes", "Pacote de revisão padronizado", "Mais de 10 clientes: sob conversa"],
         cta: { soon: true },
@@ -997,7 +997,7 @@ export const pt = {
         },
         {
           q: "Por que os preços são menores no beta?",
-          a: "Porque ainda estamos desenvolvendo as funcionalidades e o painel do contador. Cada pagamento vale por 12 meses. Depois do beta, o Pro passa a R$ 1.074 por ano e o Contador a R$ 2.695 por ano.",
+          a: "Porque ainda estamos desenvolvendo as funcionalidades e o painel do contador. Cada pagamento vale por 12 meses. Depois do beta, o Pro passa a R$ 2.500 por ano e o Contador a R$ 1.200 por cliente ao ano.",
         },
         {
           q: "Meus dados ficam seguros?",
