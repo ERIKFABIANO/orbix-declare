@@ -32,6 +32,11 @@ const REPEAT_MS = 2500;
 const FINALE_MS = 1450;
 const FADE_MS = 650;
 
+/** Progresso visual contínuo até 99%; 100% só aparece quando tudo está pronto. */
+export function splashProgressAt(elapsed: number, minimum: number) {
+  return Math.min(99, Math.max(0, Math.round((elapsed / minimum) * 100)));
+}
+
 function isFirstVisit() {
   try {
     return window.localStorage.getItem(SPLASH_KEY) !== "seen";
@@ -114,11 +119,21 @@ function SplashScreen({ onDone }: { onDone: () => void }) {
   const { t } = useI18n();
   const reduced = useReducedMotion();
   const [step, setStep] = useState(0);
+  const [progress, setProgress] = useState(0);
   const [exiting, setExiting] = useState(false);
   const [leaving, setLeaving] = useState(false);
   const [logoSettled, setLogoSettled] = useState(false);
   const sky = useMemo(() => stars(150, 7), []);
   const timing = useRef<Timing | null>(null);
+
+  // A barra avança continuamente durante o tempo mínimo; as etapas abaixo mudam apenas o texto.
+  useEffect(() => {
+    const { start, min } = timingOf(timing);
+    const update = () => setProgress(splashProgressAt(Date.now() - start, min));
+    update();
+    const timer = setInterval(update, 100);
+    return () => clearInterval(timer);
+  }, []);
 
   // Etapas: cada uma espera um evento real + uma fração do tempo mínimo, para a barra andar de forma legível.
   useEffect(() => {
@@ -189,7 +204,8 @@ function SplashScreen({ onDone }: { onDone: () => void }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [leave]);
 
-  const { pct, key } = STEPS[step];
+  const { key } = STEPS[step];
+  const pct = step >= 4 ? 100 : progress;
   const label = key ? t.splash[key] : "";
   const logoPhase: LogoPhase = exiting ? "exit" : step >= 4 ? "spin" : "idle";
 
@@ -286,7 +302,7 @@ function SplashScreen({ onDone }: { onDone: () => void }) {
         <div className="splash-bar mt-11 w-[min(400px,100%)]">
           <div className="relative h-px w-full bg-white/12">
             <div
-              className="absolute inset-y-0 left-0 bg-linear-to-r from-transparent via-[#8b6ae8] to-[#c9bcf7] transition-[width] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+              className="absolute inset-y-0 left-0 bg-linear-to-r from-transparent via-[#8b6ae8] to-[#c9bcf7] transition-[width] duration-150 ease-linear"
               style={{ width: `${pct}%` }}
             >
               <span className="absolute top-1/2 right-0 size-[6px] translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-[0_0_10px_3px_rgba(201,188,247,0.7)]" />

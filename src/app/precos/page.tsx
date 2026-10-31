@@ -46,9 +46,16 @@ export default async function PricingPage() {
                 </div>
                 <p className="m-0 text-sm text-muted">{plan.tagline}</p>
               </div>
-              <div className="flex items-baseline gap-1">
-                <span className="font-display text-[34px] font-bold tracking-[-0.02em]">{plan.price}</span>
-                {plan.period && <span className="text-sm text-muted">{plan.period}</span>}
+              <div className="flex flex-col gap-1">
+                <div className="flex items-baseline gap-1">
+                  <span className="font-display text-[34px] font-bold tracking-[-0.02em]">{plan.price}</span>
+                  {plan.period && <span className="text-sm text-muted">{plan.period}</span>}
+                </div>
+                {"regularPrice" in plan && plan.regularPrice && (
+                  <span className="text-sm text-muted">
+                    <s>{plan.regularPrice}</s> {t.afterBeta}
+                  </span>
+                )}
               </div>
               <ul className="m-0 flex flex-1 list-none flex-col gap-2.5 p-0">
                 {plan.features.map((feature) => (

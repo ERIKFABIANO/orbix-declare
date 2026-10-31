@@ -56,7 +56,7 @@ export function WelcomeScreen({ duration = FIRST.total }: { duration?: number })
   const router = useRouter();
   const { t } = useI18n();
   const reduced = useSyncExternalStore(subscribeMotion, () => window.matchMedia("(prefers-reduced-motion: reduce)").matches, () => false);
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState<boolean | null>(null);
   const [phase, setPhase] = useState<WelcomePhase>("loading");
   const heading = useRef<HTMLHeadingElement>(null);
   // Caixa onde a logo aparece em repouso; o canvas em si cobre a tela toda (sem corte no voo final).
@@ -70,6 +70,7 @@ export function WelcomeScreen({ duration = FIRST.total }: { duration?: number })
   // A linha do tempo corre desde a abertura da tela: um modelo lento nunca segura o acesso ao painel
   // (a logo entra assim que carregar; até lá aparece o texto de reserva).
   useEffect(() => {
+    if (loaded === null) return;
     const { total, arrivalAt, holdAt, exitAt } = timing;
     const timers = [
       setTimeout(() => setPhase("arrival"), reduced ? 0 : arrivalAt),
@@ -78,7 +79,7 @@ export function WelcomeScreen({ duration = FIRST.total }: { duration?: number })
       setTimeout(() => router.replace("/painel"), total),
     ];
     return () => timers.forEach(clearTimeout);
-  }, [timing, reduced, router]);
+  }, [loaded, timing, reduced, router]);
 
   // Pular: Esc/Enter/espaço (o clique está no <main>).
   useEffect(() => {
@@ -93,7 +94,7 @@ export function WelcomeScreen({ duration = FIRST.total }: { duration?: number })
     <main
       className={styles.welcome}
       data-phase={phase}
-      data-loaded={loaded}
+      data-loaded={loaded === true}
       aria-busy="true"
       onClick={() => router.replace("/painel")}
       style={
@@ -126,7 +127,7 @@ export function WelcomeScreen({ duration = FIRST.total }: { duration?: number })
             </g>
           </svg>
           <div ref={frame} className={styles.model} aria-hidden="true" />
-          {!loaded && <div className={styles.fallback} aria-hidden="true"><span>Orbix</span> Declare</div>}
+          {loaded !== true && <div className={styles.fallback} aria-hidden="true"><span>Orbix</span> Declare</div>}
         </div>
         <div className={styles.status} role="status" aria-live="polite">
           <div className={styles.track} aria-hidden="true"><span /></div>
